@@ -1,0 +1,40 @@
+// ========== FUNCTION ========== //
+@function fluid-value($min, $max, $min-screen: 768, $max-screen: 1920, $unit: px) {
+  @return clamp(
+    #{$min}#{$unit},
+    calc(
+      #{$min}#{$unit} + 
+      (#{$max} - #{$min}) * 
+      ((100vw - #{$min-screen}#{$unit}) / (#{$max-screen} - #{$min-screen}))
+    ),
+    #{$max}#{$unit}
+  );
+}
+
+
+// ========== MIXIN ========== //
+@mixin fluid-shorthand($property, $min-values, $max-values, $min-screen: 768, $max-screen: 1920, $unit: px) {
+  $count: length($min-values);
+
+  @if $count != length($max-values) {
+    @error "Min and max value lists must have the same number of values.";
+  }
+
+  $result: ();
+
+  @for $i from 1 through $count {
+    $min: nth($min-values, $i);
+    $max: nth($max-values, $i);
+
+    $value: fluid-value($min, $max, $min-screen, $max-screen, $unit);
+
+    $result: append($result, $value, space);
+  }
+
+  #{$property}: $result;
+}
+
+
+@function fv($min, $max, $min-screen: 768, $max-screen: 1920, $unit: px) {
+  @return fluid-value($min, $max, $min-screen, $max-screen, $unit);
+}

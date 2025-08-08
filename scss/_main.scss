@@ -1,0 +1,28 @@
+@use './variables'as *;
+@import './fluid-utils';
+
+.container {
+  width: min(100% - 300px, 1560px);
+  margin-inline: auto;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  background-color: $white;
+  padding: 30px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+

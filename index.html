@@ -14,34 +14,234 @@
 <body>
 
   <section class="section__hero">
-    
-      <header class="header">
-<div class="container">
-  <div class="header__wrapper">
-    <div class="header__logo">
-          <img src="/public/img/logo.png" alt="" />
+
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__logo">
+            <img src="/public/img/logo.png" alt="" />
+          </div>
+          <nav>
+            <ul class="menu__items">
+              <li class="menu__item"><a href="" class="menu__link">Об организации</a></li>
+              <li class="menu__item"><a href="" class="menu__link">Экспертизы</a></li>
+              <li class="menu__item"><a href="" class="menu__link">Оценка</a></li>
+              <li class="menu__item"><a href="" class="menu__link">Приемка нового жилья</a></li>
+              <li class="menu__item"><a href="" class="menu__link">Обратная связь</a></li>
+              <li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
+            </ul>
+          </nav>
+
+
         </div>
-        <nav>
-          <ul class="menu__items">
-            <li class="menu__item"><a href="" class="menu__link">Об организации</a></li>
-            <li class="menu__item"><a href="" class="menu__link">Экспертизы</a></li>
-            <li class="menu__item"><a href="" class="menu__link">Оценка</a></li>
-            <li class="menu__item"><a href="" class="menu__link">Приемка нового жилья</a></li>
-            <li class="menu__item"><a href="" class="menu__link">Обратная связь</a></li>
-            <li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
-          </ul>
-        </nav>
-      
-        
-  </div>
-         </div>
-   <div class="header__figure">
-          <div class="header__btn">Записаться на приемку</div>
-        </div>
-      </header>
+      </div>
+      <div class="header__figure">
+        <div class="header__btn">Записаться на приемку</div>
+      </div>
+      <div class="footer__figure">
+        <h2>Международная <span>экспертная</span>   организация</h2>
+        <a href="#">Подробнее</a>
+      </div>
+      <h1 class="hero__title title__one"><span>Наша задача</span> не нагнуть застройщика</h1>
+      <h1 class="hero__title title__two">а разогнуть собственника</h1>
+    </header>
     
+
   </section>
-  
+
+  <section>
+    <div class="container">
+      <!-- Reusable Magnifier Block -->
+      <div class="magnifier" id="spy" style="--img:url('https://shpl.info/sites/default/files/2020-05/i%20spy%2006.01.20.jpeg');
+            --mask-size: 7vmin;
+            --mask-blur: 5px;">
+        <div class="magnifier__bottom"></div>
+        <div class="magnifier__mid"></div>
+        <div class="magnifier__lens"></div>
+      </div>
+
+      <style>
+        .magnifier {
+          /* size can be anything; keep overflow hidden so it stays in its box */
+          position: relative;
+          width: min(100%, 900px);
+          aspect-ratio: 16/9;
+          overflow: hidden;
+          --mask-x: 50%;
+          --mask-y: 50%;
+          --zoom: 1.5;
+          cursor: none;
+          /* only inside the block */
+          font-family: system-ui;
+          --img: none;
+          /* pass in via inline style or CSS */
+        }
+
+        .magnifier__bottom,
+        .magnifier__mid,
+        .magnifier__lens {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          /* interactions go to the root only */
+        }
+
+        .magnifier__bottom {
+          background: var(--img) center/cover no-repeat;
+          filter: blur(15px);
+          /* фон размытый */
+        }
+
+        .magnifier__mid {
+          background: var(--img) center/cover no-repeat;
+          -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
+          mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
+        }
+
+        .magnifier__lens {
+          backdrop-filter: blur(var(--mask-blur));
+          -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+          mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+          filter: drop-shadow(-5px 5px 5px rgba(0, 0, 0, .25));
+        }
+
+        .magnifier__lens::before {
+          content: '';
+          width: calc(var(--mask-size) * .5);
+          aspect-ratio: 1/4;
+          background: black;
+          position: absolute;
+          left: var(--mask-x);
+          top: var(--mask-y);
+          transform-origin: 50% 0%;
+          transform: translate(25%, 25%) rotate(-37.5deg);
+          border-radius: 0 0 1rem 1rem;
+        }
+
+        .magnifier__lens::after {
+          content: '';
+          width: calc(var(--mask-size) * 2);
+          aspect-ratio: 1/1;
+          background: dimgray;
+          position: absolute;
+          left: var(--mask-x);
+          top: var(--mask-y);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          border: 10px solid black;
+        }
+
+        .magnifier__mid,
+        .magnifier__lens {
+          opacity: 0;
+          transition: opacity 0.25s ease;
+        }
+
+        .magnifier:hover .magnifier__mid,
+        .magnifier:hover .magnifier__lens {
+          opacity: 1;
+        }
+      </style>
+
+      <script type="module">
+        class Magnifier {
+          /**
+           * @param {HTMLElement} el container with .magnifier
+           * @param {Object} opts
+           * @param {string}  [opts.image]      url(...) or plain URL; if provided, sets --img
+           * @param {number}  [opts.zoom=1.5]
+           * @param {number}  [opts.zoomMin=1]
+           * @param {number}  [opts.zoomMax=3]
+           * @param {number}  [opts.zoomStep=0.25]
+           */
+          constructor(el, opts = {}) {
+            this.el = el;
+            this.opts = Object.assign({
+              zoom: 1.5,
+              zoomMin: 1,
+              zoomMax: 3,
+              zoomStep: 0.25
+            }, opts);
+
+            // Normalize image input: allow raw URL or url('...')
+            if (this.opts.image) {
+              const val = this.opts.image.startsWith('url(')
+                ? this.opts.image
+                : url('${this.opts.image}');
+              this.el.style.setProperty('--img', val);
+            }
+
+            this.zoom = this.opts.zoom;
+            this._onMove = this._onMove.bind(this);
+            this._onWheel = this._onWheel.bind(this);
+            this._onLeave = this._onLeave.bind(this);
+
+            // Center by default
+            this._setMask(this.el.clientWidth / 2, this.el.clientHeight / 2);
+
+            // Attach listeners to the element only
+            this.el.addEventListener('mousemove', this._onMove);
+            this.el.addEventListener('wheel', this._onWheel, { passive: false });
+            this.el.addEventListener('mouseleave', this._onLeave);
+          }
+
+          _setMask(x, y) {
+            // clamp inside the box
+            const rect = this.el.getBoundingClientRect();
+            const clampedX = Math.max(0, Math.min(x, rect.width));
+            const clampedY = Math.max(0, Math.min(y, rect.height));
+            // position in px within the element's own coordinate space
+            this.el.style.setProperty('--mask-x', clampedX + 'px');
+            this.el.style.setProperty('--mask-y', clampedY + 'px');
+            // bottom layer scales around transform-origin set to mask pos
+            this.el.style.setProperty('--zoom', this.zoom);
+          }
+
+          _onMove(e) {
+            const rect = this.el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            this._setMask(x, y);
+          }
+
+          _onWheel(e) {
+            // zoom only when pointer is over the block; prevent page scroll
+            e.preventDefault();
+            const dir = Math.sign(e.deltaY);
+            if (dir > 0 && this.zoom > this.opts.zoomMin) this.zoom = Math.max(this.opts.zoomMin, this.zoom - this.opts.zoomStep);
+            if (dir < 0 && this.zoom < this.opts.zoomMax) this.zoom = Math.min(this.opts.zoomMax, this.zoom + this.opts.zoomStep);
+            this.el.style.setProperty('--zoom', this.zoom);
+          }
+
+          _onLeave() {
+            // Optional: keep lens where it was; or fade cursor by showing default
+            // Here we just restore cursor to default outside .magnifier automatically
+          }
+
+          destroy() {
+            this.el.removeEventListener('mousemove', this._onMove);
+            this.el.removeEventListener('wheel', this._onWheel);
+            this.el.removeEventListener('mouseleave', this._onLeave);
+          }
+        }
+
+        // Example usage for this block:
+        const mag = new Magnifier(document.getElementById('spy'), {
+          // image: 'https://your.cdn/path.jpg', // or leave to use inline --img
+          zoom: 1.5,
+          zoomMin: 1,
+          zoomMax: 3,
+          zoomStep: 0.25
+        });
+
+        // Export to window if you want to reuse elsewhere without bundler
+        window.Magnifier = Magnifier;
+      </script>
+    </div>
+  </section>
+
+
+
 
   <script src="/src/js/swiper-element-bundle.min.js" async></script>
   <script type="module" src="/main.js"></script>

@@ -1,8 +1,8 @@
-@use './variables'as *;
-@import './fluid-utils';
+@use './variables' as *;
+@use './fluid-utils' as *;
 
 .container {
-  width: min(100% - 300px, 1560px);
+  width: min(100% - 30px, 1360px);
   margin-inline: auto;
   position: relative;
 }

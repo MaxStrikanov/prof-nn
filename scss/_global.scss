@@ -1,9 +1,6 @@
 @use './variables' as *;
-@import  './fluid-utils';
+@use './fluid-utils' as *;
 
-body {
-
-}
 
 a {
   text-decoration: none;

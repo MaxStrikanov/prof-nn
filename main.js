@@ -1,8 +1,6 @@
 import './style.scss'
 
-import changeColor from './public/components/changeColor'
+import changeColor from './public/components/runBtn';
 
 changeColor()
-
-
-
+runBtn()

@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/x-icon" href="/public/img/icon.png">
   <link rel="mask-icon" href="/public/img/icon.png" />
+   <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title></title>
@@ -109,11 +111,176 @@
     </div>
   </section>
 
+  <section>
+    <style>
+        .stat-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0261cc);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+        .highlight-text {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight-text:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+            z-index: -1;
+            transform: skew(-15deg);
+            border-radius: 2px;
+        }
+    </style>
+
+    <div class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+            Наши достижения</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Card 1 -->
+      <div class="stat-card bg-white shadow-md overflow-hidden p-6 flex flex-col items-center text-center hover:bg-blue-50">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-home text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-4xl font-bold text-blue-600 mb-2 relative inline-block">
+          <span class="counter" data-target="1200">0</span>+
+        </h3>
+        <p class="text-gray-600 text-lg">квартир приняли</p>
+        <div class="mt-4 w-12 h-1 bg-blue-200 rounded-full"></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="stat-card bg-white shadow-md overflow-hidden p-6 flex flex-col items-center text-center hover:bg-green-50">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+        </div>
+        <h3 class="text-4xl font-bold text-green-600 mb-2 relative inline-block">
+          <span class="counter" data-target="97">0</span>%
+        </h3>
+        <p class="text-gray-600 text-lg">дефектов устраняет застройщик</p>
+        <div class="mt-4 w-12 h-1 bg-green-200 rounded-full"></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="stat-card bg-white shadow-md overflow-hidden p-6 flex flex-col items-center text-center hover:bg-purple-50">
+        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-clock text-purple-600 text-2xl"></i>
+        </div>
+        <h3 class="text-4xl font-bold text-purple-600 mb-2">24 ч</h3>
+        <p class="text-gray-600 text-lg">средний срок готовности отчета</p>
+        <div class="mt-4 w-12 h-1 bg-purple-200 rounded-full"></div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="stat-card bg-white shadow-md overflow-hidden p-6 flex flex-col items-center text-center hover:bg-yellow-50">
+        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-star text-yellow-600 text-2xl"></i>
+        </div>
+        <h3 class="text-4xl font-bold text-yellow-600 mb-2">98%</h3>
+        <p class="text-gray-600 text-lg">клиентов рекомендуют нас</p>
+        <div class="mt-4 w-12 h-1 bg-yellow-200 rounded-full"></div>
+      </div>
+    </div>
+        
+       
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Card entrance animation
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                setTimeout(updateCount, 500);
+            });
+        });
+    </script>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <div class="path__items">
+        <div class="path__item">
+          <div class="path__item_title">
+            <i class="fas fa-home text-blue-600 text-2xl"></i>
+          </div>
+            <div class="path"></div>
+      </div>
+
+      <div class="path__item">
+          <div class="path__item_title">
+            <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+          </div>
+            <div class="path"></div>
+      </div>
+
+      <div class="path__item">
+          <div class="path__item_title">
+            <i class="fas fa-star text-yellow-600 text-2xl"></i>
+          </div>
+            <div class="path">
+              <i class="fas fa-star text-yellow-600 text-2xl"></i>
+            </div>
+      </div>
+
+      
+        </div>
+      </div>
+    
+    </div>
+  </section>
 
 
 
-
-  <script src="/src/js/swiper-element-bundle.min.js" async></script>
   <script type="module" src="/main.js"></script>
 
 </body>

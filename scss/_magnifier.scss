@@ -1,0 +1,105 @@
+@use './variables' as *;
+@use './fluid-utils' as *;
+
+.magnifier__items {
+  display: flex;
+  align-items: center;
+  gap: fv(15, 30);
+  margin: fv(30, 60) 0;
+}
+
+.magnifier__item {
+    max-width: fv(200, 360);
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* max-height: 100%; */
+}
+
+.magnifier__text {
+    border: 1px solid #eee;
+    border-radius: 0 0 20px 20px;
+    height: fv(75, 150);
+    padding: fv(10, 20);
+}
+
+.magnifier {
+  /* size can be anything; keep overflow hidden so it stays in its box */
+  position: relative;
+  width: min(100%, 350px);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  --mask-x: 50%;
+  --mask-y: 50%;
+  --zoom: 1.5;
+  cursor: none;
+  /* only inside the block */
+  font-family: system-ui;
+  --img: none;
+  /* pass in via inline style or CSS */
+  border-radius: 20px 20px 0 0;
+}
+
+.magnifier__bottom,
+.magnifier__mid,
+.magnifier__lens {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* interactions go to the root only */
+}
+
+.magnifier__bottom {
+  background: var(--img) center/cover no-repeat;
+  filter: blur(10px);
+  /* фон размытый */
+}
+
+.magnifier__mid {
+  background: var(--img) center/cover no-repeat;
+  -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
+  mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
+}
+
+.magnifier__lens {
+  backdrop-filter: blur(var(--mask-blur));
+  -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+  mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+  filter: drop-shadow(-5px 5px 5px rgba(0, 0, 0, .25));
+}
+
+.magnifier__lens::before {
+  content: '';
+  width: calc(var(--mask-size) * .5);
+  aspect-ratio: 1/4;
+  background: black;
+  position: absolute;
+  left: var(--mask-x);
+  top: var(--mask-y);
+  transform-origin: 50% 0%;
+  transform: translate(25%, 25%) rotate(-37.5deg);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.magnifier__lens::after {
+  content: '';
+  width: calc(var(--mask-size) * 2);
+  aspect-ratio: 1/1;
+  background: dimgray;
+  position: absolute;
+  left: var(--mask-x);
+  top: var(--mask-y);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px solid black;
+}
+
+.magnifier__mid,
+.magnifier__lens {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.magnifier:hover .magnifier__mid,
+.magnifier:hover .magnifier__lens {
+  opacity: 1;
+}

@@ -130,8 +130,6 @@
   margin: 0 0 0 30px;
 }
 
-.menu__item {}
-
 .menu__link {
   font-size: 16px;
   line-height: 20px;
@@ -170,46 +168,46 @@
   left: 550px;
 }
 
-.marquee {
+.hero__tags {
   position: absolute;
   bottom: 40px;
   right: 10px;
-  overflow: hidden;
-  width: 100%;
-  background: transparent;
-  height: 60px; /* регулируй под свои кнопки */
-}
-
-.marquee__track,
-.marquee .is-clone {
-  position: absolute;
-  top: 0;
-  left: 20px;
   display: flex;
   gap: 20px;
-  white-space: nowrap;
-  align-items: center;
-  will-change: transform;
+  max-width: 1000px;
+  flex-wrap: wrap;
 }
-
-.marquee .is-clone {
-  margin: 0 0 0 20px;
-}
-
 .hero__tag {
-  background: transparent;
-  border: 1px solid #fff;
+  position: relative;
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 30px;
+  border: 1px solid #fff;
   color: #fff;
   font-size: 16px;
-  white-space: nowrap;
-}
+  overflow: hidden;
 
-/* если нужно, чтобы жило в хиро внизу справа */
-.hero-inset {
-  position: absolute;
-  bottom: 40px;
-  right: 10px;
-  max-width: 1000px;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+
+  > span {
+    position: relative;
+    z-index: 1;
+    transition: -webkit-text-fill-color .25s ease, color .25s ease, background-position .25s ease;
+  }
+
+  &:hover::before { opacity: 1; }
+  &:hover > span {
+    background-image: linear-gradient(90deg, #1185b3, #0918ee);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; // на всякий
+  }
 }

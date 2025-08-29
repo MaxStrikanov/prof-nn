@@ -1,1 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+// ===============
+// Подключение шрифтов
+// ===============
+
+@mixin font($family, $file, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('/public/fonts/#{$file}.woff2') format('woff2');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+// Poppins
+@include font('Poppins', 'Poppins-Light', 300);
+@include font('Poppins', 'Poppins-Regular', 400);
+@include font('Poppins', 'Poppins-Medium', 500);
+@include font('Poppins', 'Poppins-Bold', 700);
+
+// Montserrat
+@include font('Montserrat', 'Montserrat-Light', 300);
+@include font('Montserrat', 'Montserrat-Regular', 400);
+@include font('Montserrat', 'Montserrat-Medium', 500);
+@include font('Montserrat', 'Montserrat-Bold', 700);
+
+// Roboto
+@include font('Roboto', 'Roboto-Light', 300);
+@include font('Roboto', 'Roboto-Regular', 400);
+@include font('Roboto', 'Roboto-Medium', 500);
+@include font('Roboto', 'Roboto-Bold', 700);
+
+// ===============
+// Переменные
+// ===============
+
+$roboto: 'Roboto', sans-serif;
+$poppins: 'Poppins', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
+
+// ===============
+// Базовые стили
+// ===============
+
+body {
+  font-family: $roboto;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $montserrat;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+button, input, textarea {
+  font-family: $poppins;
+  font-weight: 500;
+}

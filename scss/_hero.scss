@@ -174,7 +174,7 @@
   right: 10px;
   display: flex;
   gap: 20px;
-  max-width: 1000px;
+  max-width: fv(500, 1000);
   flex-wrap: wrap;
 }
 .hero__tag {

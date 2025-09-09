@@ -2,6 +2,22 @@
 @use './fluid-utils'as *;
 @use './fonts'as *;
 
+section#magnifier {
+    background: 
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.98) 30%,
+            rgba(255, 255, 255, 0.85) 50%,
+            rgba(255, 255, 255, 0.98) 70%,
+            rgba(255, 255, 255, 1) 100%
+        ),
+        url(../img/fon-3.avif) center / cover no-repeat;
+    background-blend-mode: lighten;
+    padding: 40px 0;
+    margin: 40px 0 0;
+}
+
 .magnifier {
   position: relative;
   width: min(100%, 350px);
@@ -33,6 +49,7 @@
     border: 1px solid #eee;
     border-radius: 20px;
     box-shadow: 1px 1px 5px 1px #eee;
+    background-color: #fff;
   }
 
   &__text {

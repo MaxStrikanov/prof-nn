@@ -35,10 +35,12 @@
     }
 
     &_content {
-      max-height: 0;
+       max-height: 0;
       overflow: hidden;
-      padding: 0 25px 20px 25px;
-      transition: max-height 0.5s ease-in-out;
+      padding: 0 25px;          // без нижнего отступа в закрытом
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      will-change: max-height;  // чуть ровнее анимация
     }
 
     &_img {
@@ -47,6 +49,7 @@
 
     &.active {
       .questions__item_content {
+         padding: 0 25px 20px 25px;
         opacity: 1;
       }
 

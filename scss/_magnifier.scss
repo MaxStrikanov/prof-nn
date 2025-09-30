@@ -3,37 +3,39 @@
 @use './fonts'as *;
 
 section#magnifier {
-    background: 
-        linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.98) 30%,
-            rgba(255, 255, 255, 0.85) 50%,
-            rgba(255, 255, 255, 0.98) 70%,
-            rgba(255, 255, 255, 1) 100%
-        ),
-        url(../img/fon-3.avif) center / cover no-repeat;
-    background-blend-mode: lighten;
-    padding: 40px 0;
-    margin: 40px 0 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.98) 30%,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgba(255, 255, 255, 0.98) 70%,
+      rgba(255, 255, 255, 1) 100%),
+    url(../img/fon-3.avif) center / cover no-repeat;
+  background-blend-mode: lighten;
+  padding: 40px 0;
+  margin: 40px 0 0;
+   
 }
 
 .magnifier {
   position: relative;
   width: min(100%, 350px);
+  max-height: 260px;
   aspect-ratio: 4/3;
   overflow: hidden;
   --mask-x: 50%;
   --mask-y: 50%;
   --zoom: 1.5;
+  --img1: none; // базовое изображение
+  --img2: none; // изображение под лупой
+  --bgx: 0px;
+  --bgy: 0px;
   cursor: none;
-  font-family: system-ui;
-  --img: none;
   border-radius: 20px 20px 0 0;
 
   &__items {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: fv(15, 30);
     margin: fv(30, 60) 0;
   }
@@ -41,19 +43,20 @@ section#magnifier {
   &__item {
     max-width: fv(200, 360);
     width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     align-self: stretch;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: fv(12, 16);
     border: 1px solid #eee;
     border-radius: 20px;
     box-shadow: 1px 1px 5px 1px #eee;
     background-color: #fff;
+    padding: 0 0 20px 0;
   }
 
   &__text {
-    padding: fv(10, 20);
+    padding: 0 fv(10, 20) fv(10, 20);
 
     h3 {
       font-size: fv(10, 20);
@@ -67,16 +70,17 @@ section#magnifier {
       font-family: $roboto;
       font-weight: 400;
       line-height: 140%;
-     color: #615f5f;
+      color: #615f5f;
+      margin: 15px 0 0;
     }
 
     ul {
       margin: fv(10, 20) 0 0 10px;
-      
+
       display: flex;
       flex-direction: column;
       gap: fv(7, 15);
-      
+
 
       & li {
         font-size: fv(8, 14);
@@ -84,25 +88,25 @@ section#magnifier {
         font-family: $roboto;
         padding: 0 0 0 10px;
         position: relative;
-  
+
 
         &::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 12px;
-      height: 12px;
-      background: url('/public/img/correct3.png') no-repeat center;
-      background-size: contain;
-    }
+          content: '';
+          position: absolute;
+          left: -10px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 12px;
+          height: 12px;
+          background: url('/public/img/correct3.png') no-repeat center;
+          background-size: contain;
+        }
       }
     }
   }
 
   &__btn {
-    margin: 20px auto;
+    margin: auto auto;
     display: block;
     width: calc(100% - 60px);
     text-align: center;
@@ -113,6 +117,7 @@ section#magnifier {
     font-weight: 500;
     padding: 15px 0;
     border-radius: 30px;
+    align-self: center;
 
     &:hover {
       background: #137ef5;
@@ -128,18 +133,22 @@ section#magnifier {
   }
 
   &__bottom {
-    background: var(--img) center/cover no-repeat;
-    filter: blur(10px);
+    background: var(--img1) center/cover no-repeat;
+
   }
 
   &__mid {
-    background: var(--img) center/cover no-repeat;
+    /* тут уже вторая картинка */
+    background-image: var(--img2);
+    background-repeat: no-repeat;
+    background-size: calc(100% * var(--zoom)) calc(100% * var(--zoom));
+    background-position: var(--bgx) var(--bgy);
     -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
     mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #fff 99%, transparent 100%);
   }
 
   &__lens {
-    backdrop-filter: blur(var(--mask-blur));
+
     -webkit-mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
     mask: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
     filter: drop-shadow(-5px 5px 5px rgba(0, 0, 0, .25));

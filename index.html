@@ -8,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 
   <title></title>
 </head>
@@ -129,8 +130,7 @@
         </div>
 
         <div class="magnifier__item">
-          <div class="magnifier" 
-          style="--img1:url('/public/img/prof_4-1.avif'); 
+          <div class="magnifier" style="--img1:url('/public/img/prof_4-1.avif'); 
             --img2:url('/public/img/prof_4-2.avif'); 
             --mask-size:7vmin; 
             --mask-blur:5px;">
@@ -236,16 +236,164 @@
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2 class="title">
-        Работа с элементами инфоблоков
+
+  <section class="py-20 bg-muted/30">
+    <div class="container mx-auto px-4">
+      <h2 class="title">Как мы работает</h2>
+      <div class="text-center mb-16">
         
-      </h2>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="relative">
+          <div
+            class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary transform -translate-x-1/2">
+          </div>
+          <div class="space-y-12">
+            <div class="relative flex items-center gap-8 md:flex-row flex-col md:gap-16">
+              <div class="flex-1 md:text-right text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">01</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Получение заявки</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Вы оставляете заявку через форму на сайте, по
+                    телефону или email</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">В течение часа</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+            <div class="relative flex items-center gap-8 md:flex-row-reverse flex-col md:gap-16">
+              <div class="flex-1 md:text-left text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">02</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Консультация</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Наш менеджер связывается с вами для уточнения
+                    деталей и расчета стоимости</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">В день обращения</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+            <div class="relative flex items-center gap-8 md:flex-row flex-col md:gap-16">
+              <div class="flex-1 md:text-right text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">03</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Заключение договора</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Подписание договора и внесение предоплаты.
+                    Возможно удаленное оформление</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">1 рабочий день</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+            <div class="relative flex items-center gap-8 md:flex-row-reverse flex-col md:gap-16">
+              <div class="flex-1 md:text-left text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">04</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Проведение экспертизы</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Выезд эксперта на объект, сбор документов и
+                    проведение исследований</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">5-15 рабочих дней</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+            <div class="relative flex items-center gap-8 md:flex-row flex-col md:gap-16">
+              <div class="flex-1 md:text-right text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">05</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Подготовка заключения</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Оформление экспертного заключения с печатями и
+                    подписями</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">2-3 рабочих дня</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+            <div class="relative flex items-center gap-8 md:flex-row-reverse flex-col md:gap-16">
+              <div class="flex-1 md:text-left text-center">
+                <div
+                  class="bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all">
+                  <div class="text-5xl font-bold text-primary/20 mb-2">06</div>
+                  <h3 class="text-2xl font-semibold mb-3 text-foreground">Получение результата</h3>
+                  <p class="text-muted-foreground mb-4 leading-relaxed">Передача готового экспертного заключения лично,
+                    курьером или почтой</p>
+                  <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-circle-check-big w-4 h-4 text-secondary">
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                      <path d="m9 11 3 3L22 4"></path>
+                    </svg><span class="text-sm font-medium text-secondary">По договоренности</span></div>
+                </div>
+              </div>
+              <div
+                class="relative flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-elevated z-10">
+                <div class="w-8 h-8 rounded-full bg-white"></div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section style="display: none;">
+  <section>
     <style>
       .stat-card {
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);

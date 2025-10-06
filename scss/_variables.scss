@@ -8,13 +8,25 @@ $acccent-bg: #FFF4ED;
 $text-color: #23282D;
 $white: #fff;
 
+$primary: #00aeff;
+$secondary: #00aeff;
+$foreground: #0f172a;
 
+$muted-fore: #64748b;
+$card: #ffffff;
+$border: rgba(15, 23, 42, 0.08);
 
+$radius-xl: 16px;
+$radius-full: 999px;
+
+$shadow-card: 0 1px 2px rgba(0, 0, 0, .06), 0 1px 1px rgba(0, 0, 0, .04);
+$shadow-elev: 0 10px 25px rgba(0, 0, 0, .15);
+
+$container-w: 1120px;
+$md: 768px;
 
 $adt-fs16: clamp(8px, 0.83vw, 16px);
 $adt-fs20: clamp(10px, 1.04vw, 20px);
-$adt-fs74: clamp(32px, 3.85vw, 74px);
-$adt-fs90: clamp(32px, 4.69vw, 90px);
 $adt-fs36: fv(16, 36);
 $br30: clamp(12px, 1.5625vw, 30px);
 $br60: clamp(30px, 3.125vw, 60px);

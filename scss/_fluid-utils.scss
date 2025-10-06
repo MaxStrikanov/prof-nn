@@ -35,6 +35,9 @@
 }
 
 
-@function fv($min, $max, $min-screen: 768, $max-screen: 1920, $unit: px) {
+@function fv($min, $max, $min-screen: 768, $max-screen: 1600, $unit: px) {
   @return fluid-value($min, $max, $min-screen, $max-screen, $unit);
 }
+
+
+

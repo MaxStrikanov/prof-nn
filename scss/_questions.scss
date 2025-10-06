@@ -21,6 +21,7 @@
     backdrop-filter: blur(2px);
     flex-shrink: 0;
     cursor: pointer;
+    max-width: fv(400, 800);
 
     &.active {
           padding: 0 0 25px 0;

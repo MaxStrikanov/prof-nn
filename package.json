@@ -10,7 +10,9 @@
   },
   "devDependencies": {
     "sass": "^1.89.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "rollup": "^4.9.2",
+    "@rollup/rollup-linux-x64-gnu": "^4.9.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
@@ -18,7 +20,6 @@
     "gsap": "^3.13.0",
     "modern-css-reset": "^1.4.0",
     "swiper": "^12.0.2",
-    "three": "^0.180.0"
   },
   "description": "",
   "main": "main.js",

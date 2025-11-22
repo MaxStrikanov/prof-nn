@@ -72,6 +72,7 @@
 .hww {
   padding-block: 80px;
   background: #f6f7fb;
+  overflow-x: hidden;
 
   .container {
     max-width: $container-w;

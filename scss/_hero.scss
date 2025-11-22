@@ -182,6 +182,10 @@
   flex-wrap: wrap;
 }
 
+.hero__tags-marquee {
+    display: none;
+}
+
 .hero__tag {
   position: relative;
   display: inline-block;

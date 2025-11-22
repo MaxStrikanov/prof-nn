@@ -195,28 +195,44 @@ section#magnifier {
   }
 }
 
-@media  (max-width: 576px) {
+@media (max-width: 576px) {
   .magnifier__items {
     flex-wrap: wrap;
-}
-.magnifier__item {
+  }
+
+  .magnifier__item {
     max-width: 100%;
     justify-content: stretch;
-}
-.magnifier {
+  }
 
+  .magnifier {
     width: 100%;
-}
+    cursor: auto;             // убираем cursor: none на мобилках
+  }
 
-.magnifier__text h3 {
-    font-size: fv-mob(18,24);
-}
+  /* отключаем анимации и ховеры внутри лупы */
+  .magnifier__mid,
+  .magnifier__lens {
+    opacity: 0;               // всегда показаны, не завязаны на :hover
+    transition: none;         // без плавных переходов
+    filter: none;             // убираем drop-shadow
+  }
 
-.magnifier__text p {
-    font-size: fv-mob(16,20);
-}
+  /* на всякий случай глушим hover-эффект на мобилках */
+  .magnifier:hover .magnifier__mid,
+  .magnifier:hover .magnifier__lens {
+    opacity: 0;
+  }
 
-.magnifier__text ul li {
-    font-size: fv-mob(12,16);
-}
+  .magnifier__text h3 {
+    font-size: fv-mob(18, 24);
+  }
+
+  .magnifier__text p {
+    font-size: fv-mob(16, 20);
+  }
+
+  .magnifier__text ul li {
+    font-size: fv-mob(12, 16);
+  }
 }

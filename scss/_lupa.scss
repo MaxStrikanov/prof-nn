@@ -1,0 +1,65 @@
+html {
+  min-height: 100vh;
+  --mask-blur: 10px;
+  --mask-size: 15vmin;
+  --mask-x: 25%;
+  --mask-y: 25%;
+  --zoom: 1.5;
+  cursor: none;
+  font-family: system-ui;
+}
+
+
+#bottom_layer {
+  position: fixed;
+  inset: 0;
+  background: 
+    url('https://shpl.info/sites/default/files/2020-05/i%20spy%2006.01.20.jpeg');
+  background-size: cover;
+  transform-origin: var(--mask-x) var(--mask-y);
+  transform: scale(var(--zoom));
+  image-rendering: auto;
+}
+
+#mid_layer {
+  position: fixed;
+  inset: 0;
+  background: 
+    url('https://shpl.info/sites/default/files/2020-05/i%20spy%2006.01.20.jpeg');
+  background-size: cover;
+  -webkit-mask:radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+  mask:radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+}
+
+#lens {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(var(--mask-blur));
+  -webkit-mask:radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+  mask:radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), transparent 99%, #fff 100%);
+  filter: drop-shadow(-5px 5px 5px rgba(0,0,0,.25));
+}
+#lens:before {
+  content: '';
+  width: calc(var(--mask-size) * .5);
+  aspect-ratio: 1/4;
+  background: black;
+  position: absolute;
+  left: var(--mask-x);
+  top: var(--mask-y);
+  transform-origin: 50% 00%;
+  transform: translate(25%,25%) rotate(-37.5deg);
+  border-radius: 0 0 1rem 1rem;
+}
+#lens:after {
+  content: '';
+  width: calc(var(--mask-size) * 2);
+  aspect-ratio: 1/1;
+  background: dimgray;
+  position: absolute;
+  left: var(--mask-x);
+  top: var(--mask-y);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  border: 10px solid black;  
+}

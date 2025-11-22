@@ -1,0 +1,109 @@
+@use './variables'as *;
+@use './fluid-utils'as *;
+@use './fonts'as *;
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: fv(20, 30);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: fv(20, 30);
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: fv(20, 30);
+  }
+
+  &__card {
+    display: flex;
+    gap: fv(20, 30);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid #D7DFEA;
+    background: #FFF;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+  }
+
+  &__icon {
+    border-radius: 12px;
+    background: rgba(60, 131, 246, 0.10);
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__card-title {
+    font-family: $poppins;
+    font-size: $fs28;
+    font-weight: 600;
+  }
+
+  &__card-text {
+    font-family: $poppins;
+  }
+
+  &__hours {
+    font-family: $poppins;
+    font-size: $fs22;
+    font-weight: 600;
+  }
+
+  &__days {
+    font-family: $poppins;
+  }
+
+  &__list {
+    font-family: $poppins;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  &__map {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #D7DFEA;
+    background: #FFF;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+  }
+
+  &__social-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__social-item {
+    max-width: 32px;
+    max-height: 32px;
+
+
+
+    & img {
+      width: 100%;
+    }
+
+  }
+
+}
+
+@media (max-width: 576px) {
+  .contacts__grid {
+    grid-template-columns: 1fr;
+}
+
+.contacts .title {
+    max-width: 83%;
+}
+}

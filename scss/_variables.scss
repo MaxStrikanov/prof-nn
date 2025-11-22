@@ -1,0 +1,59 @@
+@use './fonts'as *;
+@use './fluid-utils'as *;
+
+$base-color: #F1F3F6;
+$bg-color: #F6F8FA;
+$acccent-color: #0261cc;
+$acccent-bg: #FFF4ED;
+$text-color: #23282D;
+$white: #fff;
+
+$primary: #00aeff;
+$secondary: #00aeff;
+$foreground: #0f172a;
+
+$muted-fore: #64748b;
+$card: #ffffff;
+$border: rgba(15, 23, 42, 0.08);
+
+$radius-xl: 16px;
+$radius-full: 999px;
+
+$shadow-card: 0 1px 2px rgba(0, 0, 0, .06), 0 1px 1px rgba(0, 0, 0, .04);
+$shadow-elev: 0 10px 25px rgba(0, 0, 0, .15);
+
+$container-w: 1120px;
+$md: 768px;
+
+$adt-fs16: clamp(8px, 0.83vw, 16px);
+$adt-fs20: clamp(10px, 1.04vw, 20px);
+$adt-fs36: fv(16, 36);
+$br30: clamp(12px, 1.5625vw, 30px);
+$br60: clamp(30px, 3.125vw, 60px);
+
+$fs42: fv(31,2, 42);
+$fs22: fv(16.5, 22);
+$fs16: fv(12, 16);
+$fs18: fv(13.5, 18);
+$fs28: fv(21, 28);
+$fs36: fv(27, 36);
+$fs15: fv(11.25, 15);
+$fs18: fv(13.5, 18);
+$fs26: fv(19.5, 26);
+
+$fs-p-28: fv-p(28, 37.3);
+$fs-p-22: fv-p(22, 29.333);
+$fs-p-18: fv-p(18, 24);
+$fs-p-15: fv-p(15, 20);
+$fs-p-12: fv-p(12, 16);
+
+$fs-m-28: fv-m(28, 44.8);
+$fs-m-25: fv-m(25, 38);
+$fs-m-22: fv-m(22, 35.2);
+$fs-m-20: fv-m(20, 32);
+$fs-m-16: fv-m(16, 25.6);
+$fs-m-15: fv-m(15, 24);
+$fs-m-18: fv-m(18, 28.8);
+$fs-m-14: fv-m(14, 22.4);
+$fs-m-13: fv-m(13, 20.8);
+$fs-m-12: fv-m(12, 19.2);

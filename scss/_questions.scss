@@ -1,0 +1,126 @@
+@use './variables'as *;
+@use './fluid-utils'as *;
+@use './fonts'as *;
+
+.questions {
+  border-radius: 12px;
+  border: 1px solid rgba(217, 227, 242, 0.60);
+  background: rgba(255, 255, 255, 0.70);
+  padding: 30px;
+  margin: 40px 0 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: space-between;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__img {
+    border: 1px solid rgba(217, 227, 242, 0.6);
+    background: rgba(255, 255, 255, 0.7);
+    background-image: url(/public/img/q1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    width: 50%;
+    border-radius: 12px;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+
+    &.fade {
+      opacity: 0;
+    }
+  }
+
+  &__item {
+    border-radius: 12px;
+    border: 1px solid rgba(217, 227, 242, 0.60);
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(2px);
+    flex-shrink: 0;
+    cursor: pointer;
+    max-width: fv(400, 800);
+
+    &.active {
+      padding: 0 0 25px 0;
+    }
+
+    &_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 25px;
+    }
+
+    &_title {
+      font-size: $adt-fs20;
+      margin: 0;
+    }
+
+    &_content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 25px;
+      font-size: $adt-fs20;
+      transition: max-height 0.4s ease, opacity 0.1s ease;
+      will-change: max-height;
+    }
+
+    &_img {
+      transition: transform 0.3s ease-in-out;
+
+      & svg {
+        stroke: #344256;
+      }
+    }
+
+    &.active {
+
+      .questions__item_title {
+        color: $acccent-color;
+      }
+
+
+      .questions__item_img {
+        transform: rotate(180deg);
+        stroke: $acccent-color;
+      }
+
+      .questions__item_img svg {
+        stroke: $acccent-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+
+  .questions {
+
+    padding: 15px;
+  }
+
+  .questions__img {
+    display: none;
+  }
+
+  .questions__item {
+    max-width: 100%;
+  }
+
+  .questions__item_title {
+    font-size: fv-mob(14, 16);
+
+  }
+
+  .questions__item_content {
+    font-size: fv-mob(14, 16);
+  }
+
+
+}

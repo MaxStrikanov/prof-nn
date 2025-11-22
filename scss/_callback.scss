@@ -1,0 +1,41 @@
+@use './variables'as *;
+@use './fluid-utils'as *;
+@use './fonts'as *;
+
+.callback {
+    padding: 40px 16px; // отступы секции, подгони под макет
+    display: flex;
+    justify-content: center;
+
+    &__inner {
+        width: 100%;
+        max-width: 420px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px 24px 28px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    &__title {
+        margin: 0 0 18px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    &__text {
+        margin: 0 0 18px;
+        font-size: 14px;
+        color: #4b5563;
+        max-width: 320px;
+    }
+
+    & .modal__form {
+        // чтобы точно вело себя как в модалке
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+}

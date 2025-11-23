@@ -213,15 +213,22 @@ section#magnifier {
   /* отключаем анимации и ховеры внутри лупы */
   .magnifier__mid,
   .magnifier__lens {
-    opacity: 0;               // всегда показаны, не завязаны на :hover
+    opacity: 0; 
+    display: none;              // всегда показаны, не завязаны на :hover
     transition: none;         // без плавных переходов
     filter: none;             // убираем drop-shadow
+  }
+
+  .magnifier__lens::after,
+  .magnifier__lens::before {
+    display: none;
   }
 
   /* на всякий случай глушим hover-эффект на мобилках */
   .magnifier:hover .magnifier__mid,
   .magnifier:hover .magnifier__lens {
     opacity: 0;
+    display: none;  
   }
 
   .magnifier__text h3 {

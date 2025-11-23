@@ -17,8 +17,6 @@ autoComplite()
 changeImg()
 accordion()
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 576) {
-    magnifier()
-  }
-})
+if (window.innerWidth > 768) {
+  magnifier()
+}

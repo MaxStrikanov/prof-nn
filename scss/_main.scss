@@ -3,7 +3,7 @@
 @use './fonts'as *;
 
 .container {
-  width: min(100% - 30px, 1360px);
+  width: min(100% - 30px, 1360px) !important;
   margin-inline: auto;
   position: relative;
 }
